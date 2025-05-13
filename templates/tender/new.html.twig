@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Добавить тендер{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Новый тендер</h2>
+
+        <div class="w-50 mx-auto">
+            {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+
+            <div class="mb-3">
+                {{ form_label(form.number, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.number, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.number) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.status, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.status, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.status) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.name, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.name) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.updatedAt, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.updatedAt, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.updatedAt) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.externalCode, null, {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.externalCode, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.externalCode) }}
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-primary">Сохранить</button>
+                <a href="{{ path('app_tender') }}" class="btn btn-secondary">Назад</a>
+            </div>
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

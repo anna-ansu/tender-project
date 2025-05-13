@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Тендер №{{ tender.id }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Информация о тендере</h2>
+
+        <table class="table table-bordered w-50 mx-auto">
+            <tbody>
+            <tr>
+                <th>Внешний номер</th>
+                <td>{{ tender.externalCode }}</td>
+            </tr>
+            <tr>
+                <th>Номер</th>
+                <td>{{ tender.number }}</td>
+            </tr>
+            <tr>
+                <th>Статус</th>
+                <td>{{ tender.status }}</td>
+            </tr>
+            <tr>
+                <th>Название</th>
+                <td>{{ tender.name }}</td>
+            </tr>
+            <tr>
+                <th>Дата изменения</th>
+                <td>{{ tender.updatedAt ? tender.updatedAt|date('Y-m-d') : '—' }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center mt-4">
+            <a href="{{ path('app_tender') }}" class="btn btn-secondary">Вернуться назад</a>
+        </div>
+    </div>
+{% endblock %}

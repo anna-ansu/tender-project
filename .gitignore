@@ -3,11 +3,17 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+.env.local
+.env
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+# IDE
+.idea/
+node_modules/
 
 ###> phpunit/phpunit ###
 /phpunit.xml
