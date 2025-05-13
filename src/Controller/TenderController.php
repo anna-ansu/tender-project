@@ -80,41 +80,4 @@ final class TenderController extends AbstractController
         ]);
     }
 
-    /*public function getTender(Request $request, EntityManagerInterface $entityManager):JsonResponse
-    {
-        $name = $request->get('name');
-        $date = $request->get('date');
-
-        $qb = $entityManager->getRepository(Tender::class)->createQueryBuilder('tender');
-
-        if ($name) {
-            $qb->andWhere('tender.name LIKE :name')
-                ->setParameter('name', '%' . $name . '%');
-        }
-
-        // Фильтруем по дате
-        if ($date) {
-            $qb->andWhere('tender.updatedAt >= :date')
-                ->setParameter('date', new \DateTime($date));
-        }
-
-        // Получаем результаты
-        $tenders = $qb->getQuery()->getResult();
-
-        // Преобразуем данные в массив для ответа
-        $tendersArray = array_map(function($tender) {
-            return [
-                'id' => $tender->getId(),
-                'number' => $tender->getNumber(),
-                'status' => $tender->getStatus(),
-                'name' => $tender->getName(),
-                'updatedAt' => $tender->getUpdatedAt()->format('Y-m-d H:i:s'),
-            ];
-        }, $tenders);
-
-        return new JsonResponse($tendersArray);
-    }*/
-
-
-
 }
