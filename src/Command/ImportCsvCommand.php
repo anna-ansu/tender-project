@@ -22,6 +22,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class ImportCsvCommand extends Command
 {
 
+    //интерфейс управляет сущностями
     private EntityManagerInterface $entityManager;
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -29,6 +30,7 @@ class ImportCsvCommand extends Command
         $this->entityManager = $entityManager;
     }
 
+    // Конфигурация команды
     protected function configure(): void
     {
         $this
@@ -87,6 +89,7 @@ class ImportCsvCommand extends Command
 
         // Сохраняем в базе данных, если не тестовый режим
         if (!$input->getOption('dry-run')) {
+            //сохраняем все изменения в базу
             $this->entityManager->flush();
         }
 
